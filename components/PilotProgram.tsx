@@ -25,14 +25,14 @@ const PilotProgram = () => {
             <div className="p-col-left">
               <div className="pilot-eyebrow">The RecastCoach Pilot Program</div>
               <div className="pilot-divider"></div>
+              <div className="pilot-program">
+                A 4-month AI career coaching program. 100 participants. One
+                cohort.
+              </div>
               <div className="pilot-human">
                 That&apos;s $29 a month to give a displaced worker their{" "}
                 <em>confidence</em>, their <em>direction</em>, and their{" "}
                 <em>next chapter</em>.
-              </div>
-              <div className="pilot-program">
-                A 4-month AI career coaching program. 100 participants. One
-                cohort.
               </div>
               <div className="pilot-features">
                 {features.map((feat, i) => (

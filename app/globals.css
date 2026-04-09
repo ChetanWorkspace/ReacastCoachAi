@@ -602,9 +602,8 @@ nav {
 .stat-src {
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.3);
-  font-style: italic;
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.733);
   margin-top: auto;
 }
 .stat.stat-feat {
@@ -2326,6 +2325,7 @@ footer::after {
   /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 48px; text-align: center; }
   .footer-brand { align-items: center; }
+  .footer-col-title, .fi-dot { display: none; }
   .footer-bot { flex-direction: column; gap: 32px; text-align: center; }
   .footer-links { flex-direction: column; gap: 16px; align-items: center; }
 }
