@@ -1923,6 +1923,18 @@ nav {
 .field input::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
+.error-msg {
+  color: #ff4d4d;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 6px;
+  display: block;
+  animation: fadeUp 0.3s ease forwards;
+}
+.field input.error {
+  border-color: rgba(255, 77, 77, 0.4);
+  background: rgba(255, 77, 77, 0.05);
+}
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

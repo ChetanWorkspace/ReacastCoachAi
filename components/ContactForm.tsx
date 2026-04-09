@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const ContactForm = () => {
   const [activeTab, setActiveTab] = useState("agency"); // agency or individual
@@ -8,6 +10,22 @@ const ContactForm = () => {
   const switchTab = (tab: string) => {
     setActiveTab(tab);
   };
+
+  const agencySchema = Yup.object().shape({
+    name: Yup.string().required("Full name is required").min(2, "Name too short"),
+    agency: Yup.string().required("Agency name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    state: Yup.string(),
+    role: Yup.string(),
+  });
+
+  const individualSchema = Yup.object().shape({
+    fname: Yup.string().required("First name is required").min(2, "Name too short"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    field: Yup.string().required("Field of work is required"),
+    state: Yup.string(),
+    sms_consent: Yup.boolean(),
+  });
 
   return (
     <section className="section-wrap form-wrap" id="contact">
@@ -40,57 +58,75 @@ const ContactForm = () => {
             <div
               className={`form-panel ${activeTab === "agency" ? "active" : ""}`}
             >
-              <div className="field">
-                <label>Your name</label>
-                <input type="text" name="name" placeholder="First and last name" />
-              </div>
-              <div className="field">
-                <label>Agency or organization</label>
-                <input
-                  type="text"
-                  name="agency"
-                  placeholder="e.g. Kansas Workforce Alliance"
-                />
-              </div>
-              <div className="field">
-                <label>Work email</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@agency.gov"
-                />
-              </div>
-              <div className="field-row">
-                <div className="field">
-                  <label>
-                    State <span className="opt">optional</span>
-                  </label>
-                  <input type="text" name="state" placeholder="e.g. Kansas" />
-                </div>
-                <div className="field">
-                  <label>
-                    Role <span className="opt">optional</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="role"
-                    placeholder="e.g. Program Director"
-                  />
-                </div>
-              </div>
-              <button
-                type="submit"
-                className="submit-btn"
-                onClick={() =>
-                  alert("Thank you for your interest. We will be in touch soon.")
-                }
+              <Formik
+                initialValues={{ name: "", agency: "", email: "", state: "", role: "" }}
+                validationSchema={agencySchema}
+                onSubmit={(values, { resetForm }) => {
+                  console.log("Agency form values:", values);
+                  alert("Thank you for your interest. We will be in touch soon.");
+                  resetForm();
+                }}
               >
-                Request a pilot conversation
-              </button>
-              <div className="privacy-note">
-                Your information is never shared or sold. We will only use it to
-                follow up about RecastCoach.
-              </div>
+                {({ errors, touched }) => (
+                  <Form>
+                    <div className="field">
+                      <label>Your name</label>
+                      <Field
+                        type="text"
+                        name="name"
+                        placeholder="First and last name"
+                        className={errors.name && touched.name ? "error" : ""}
+                      />
+                      <ErrorMessage name="name" component="span" className="error-msg" />
+                    </div>
+                    <div className="field">
+                      <label>Agency or organization</label>
+                      <Field
+                        type="text"
+                        name="agency"
+                        placeholder="e.g. Kansas Workforce Alliance"
+                        className={errors.agency && touched.agency ? "error" : ""}
+                      />
+                      <ErrorMessage name="agency" component="span" className="error-msg" />
+                    </div>
+                    <div className="field">
+                      <label>Work email</label>
+                      <Field
+                        type="email"
+                        name="email"
+                        placeholder="you@agency.gov"
+                        className={errors.email && touched.email ? "error" : ""}
+                      />
+                      <ErrorMessage name="email" component="span" className="error-msg" />
+                    </div>
+                    <div className="field-row">
+                      <div className="field">
+                        <label>
+                          State <span className="opt">optional</span>
+                        </label>
+                        <Field type="text" name="state" placeholder="e.g. Kansas" />
+                      </div>
+                      <div className="field">
+                        <label>
+                          Role <span className="opt">optional</span>
+                        </label>
+                        <Field
+                          type="text"
+                          name="role"
+                          placeholder="e.g. Program Director"
+                        />
+                      </div>
+                    </div>
+                    <button type="submit" className="submit-btn">
+                      Request a pilot conversation
+                    </button>
+                    <div className="privacy-note">
+                      Your information is never shared or sold. We will only use it to
+                      follow up about RecastCoach.
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
 
             {/* INDIVIDUAL FORM */}
@@ -99,52 +135,76 @@ const ContactForm = () => {
                 activeTab === "individual" ? "active" : ""
               }`}
             >
-              <div className="field">
-                <label>Your first name</label>
-                <input type="text" name="fname" placeholder="First name" />
-              </div>
-              <div className="field">
-                <label>Email address</label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="you@email.com"
-                />
-              </div>
-              <div className="field">
-                <label>What field did you work in?</label>
-                <input
-                  type="text"
-                  name="field"
-                  placeholder="e.g. Manufacturing, Finance, Healthcare"
-                />
-              </div>
-              <div className="field">
-                <label>
-                  State <span className="opt">optional</span>
-                </label>
-                <input type="text" name="state" placeholder="e.g. Kansas" />
-              </div>
-              <div className="checkbox-row">
-                <input type="checkbox" name="sms_consent" id="sms_consent_ind" />
-                <label htmlFor="sms_consent_ind">
-                  Text me when RecastCoach launches. I want early access.
-                </label>
-              </div>
-              <button
-                type="submit"
-                className="submit-btn"
-                style={{
-                  background:
-                    "linear-gradient(135deg, var(--teal), var(--teal-bright))",
+              <Formik
+                initialValues={{ fname: "", email: "", field: "", state: "", sms_consent: false }}
+                validationSchema={individualSchema}
+                onSubmit={(values, { resetForm }) => {
+                  console.log("Individual form values:", values);
+                  alert("Thank you! You've claimed your spot.");
+                  resetForm();
                 }}
               >
-                Claim your spot
-              </button>
-              <div className="privacy-note">
-                Your information is never shared or sold. We&apos;ll only reach out
-                about RecastCoach.
-              </div>
+                {({ errors, touched }) => (
+                  <Form>
+                    <div className="field">
+                      <label>Your first name</label>
+                      <Field
+                        type="text"
+                        name="fname"
+                        placeholder="First name"
+                        className={errors.fname && touched.fname ? "error" : ""}
+                      />
+                      <ErrorMessage name="fname" component="span" className="error-msg" />
+                    </div>
+                    <div className="field">
+                      <label>Email address</label>
+                      <Field
+                        type="email"
+                        name="email"
+                        placeholder="you@email.com"
+                        className={errors.email && touched.email ? "error" : ""}
+                      />
+                      <ErrorMessage name="email" component="span" className="error-msg" />
+                    </div>
+                    <div className="field">
+                      <label>What field did you work in?</label>
+                      <Field
+                        type="text"
+                        name="field"
+                        placeholder="e.g. Manufacturing, Finance, Healthcare"
+                        className={errors.field && touched.field ? "error" : ""}
+                      />
+                      <ErrorMessage name="field" component="span" className="error-msg" />
+                    </div>
+                    <div className="field">
+                      <label>
+                        State <span className="opt">optional</span>
+                      </label>
+                      <Field type="text" name="state" placeholder="e.g. Kansas" />
+                    </div>
+                    <div className="checkbox-row">
+                      <Field type="checkbox" name="sms_consent" id="sms_consent_ind" />
+                      <label htmlFor="sms_consent_ind">
+                        Text me when RecastCoach launches. I want early access.
+                      </label>
+                    </div>
+                    <button
+                      type="submit"
+                      className="submit-btn"
+                      style={{
+                        background:
+                          "linear-gradient(135deg, var(--teal), var(--teal-bright))",
+                      }}
+                    >
+                      Claim your spot
+                    </button>
+                    <div className="privacy-note">
+                      Your information is never shared or sold. We&apos;ll only reach out
+                      about RecastCoach.
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         </div>
