@@ -51,30 +51,23 @@ const PilotProgram = () => {
                   <div className="pilot-price-num">$116</div>
                   <div className="pilot-price-detail">per person</div>
                 </div>
-                <div
-                  className="pilot-eyebrow"
-                  style={{ color: "rgba(255,255,255,0.4)", marginBottom: 0 }}
-                >
-                  Enrollment for the 2025 Flagship Cohort
-                </div>
               </div>
 
               <div className="pilot-comparison">
                 <div className="comp-label">How it compares</div>
                 <div className="comp-flex">
                   <div className="comp-item ours">
-                    <div className="comp-val">RecastCoach pilot</div>
                     <div className="comp-p">$116</div>
+                    <div className="comp-val">RecastCoach pilot · per person, 4 months</div>
                   </div>
-                  <div className="comp-vs">vs</div>
+                  <div className="comp-vs">vs.</div>
                   <div className="comp-item theirs">
-                    <div className="comp-val">Industry average</div>
                     <div className="comp-p">$1,900</div>
+                    <div className="comp-val">Industry average · outplacement, per person</div>
                   </div>
                 </div>
                 <div className="comp-summary">
-                  That is over <strong>$12,000 saved</strong> per participant
-                  compared to traditional external coaching services.
+                  Daily AI career coaching. WIOA outcome tracking. Four months of dedicated support. For less than 7% of what traditional programs charge.
                 </div>
               </div>
 
@@ -83,7 +76,7 @@ const PilotProgram = () => {
                   Request a pilot conversation
                 </a>
                 <div className="pilot-cta-sub">
-                  Only <em>4 slots</em> remaining for the 2025 Flagship Cohort.
+                  No commitment. No pitch deck. Just a conversation about what this looks like for your program.
                 </div>
               </div>
             </div>
@@ -93,7 +86,7 @@ const PilotProgram = () => {
         <div className="pilot-integration">
           <div className="pint-label">The full journey. No drop-off.</div>
           <div className="pint-heading">
-            Four months that follow the person, <em>not the schedule.</em>
+            Four months that follow the person, not the schedule.
           </div>
           <div className="pint-body">
             Whether someone lands a new role in week three or month four,

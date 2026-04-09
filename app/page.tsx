@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
@@ -9,11 +12,13 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("agency"); // agency or individual
+
   return (
     <main>
       <Navbar />
-      <Hero />
-      <Stats />
+      <Hero activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Stats activeTab={activeTab} />
       <Carousel />
       <WioaCompliance />
       <Founder />
