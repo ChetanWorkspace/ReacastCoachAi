@@ -2306,8 +2306,14 @@ footer::after {
 
 @media (max-width: 768px) {
   .section-wrap { padding: 60px 6%; }
-  /* Stats */
-  .stats-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 50px; padding-bottom: 40px; }
+  .hero-right { display: none; }
+  .hero-actions { flex-direction: column; gap: 20px; align-items: center; width: 100%; text-align: center; }
+  .hero-cta-primary { width: 100%; justify-content: center; max-width: 320px; }
+  .hero-cta-secondary { justify-content: center; width: auto; }
+  /* Stats/WIOA */
+  .stats-grid, .wioa-grid { grid-template-columns: 1fr; }
+  .wioa-desc { max-width: 100%; }
   .stat { border-right: none; border-bottom: 1px solid rgba(18, 168, 146, 0.08); padding: 32px; }
   
   /* Carousel/Chat */
@@ -2320,7 +2326,8 @@ footer::after {
   /* Footer */
   .footer-top { grid-template-columns: 1fr; gap: 48px; text-align: center; }
   .footer-brand { align-items: center; }
-  .footer-bot { flex-direction: column; gap: 20px; text-align: center; }
+  .footer-bot { flex-direction: column; gap: 32px; text-align: center; }
+  .footer-links { flex-direction: column; gap: 16px; align-items: center; }
 }
 
 @media (max-width: 480px) {
