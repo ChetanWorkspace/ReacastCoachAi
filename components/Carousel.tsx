@@ -327,22 +327,22 @@ const Carousel = () => {
                 <div className="bstep" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', display: 'flex', gap: '12px' }}>
                   <div className="bnum" style={{ width: '24px', height: '24px', background: 'var(--teal)', borderRadius: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>1</div>
                   <span>Sit up straight. Hands on knees. One deep breath in through the
-                  nose to prepare.</span>
+                    nose to prepare.</span>
                 </div>
                 <div className="bstep" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', display: 'flex', gap: '12px' }}>
                   <div className="bnum" style={{ width: '24px', height: '24px', background: 'var(--teal)', borderRadius: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>2</div>
                   <span>Rapid, rhythmic pumps: forceful exhale through the nose, passive
-                  inhale. One pump per second. Belly drives each exhale.</span>
+                    inhale. One pump per second. Belly drives each exhale.</span>
                 </div>
                 <div className="bstep" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', display: 'flex', gap: '12px' }}>
                   <div className="bnum" style={{ width: '24px', height: '24px', background: 'var(--teal)', borderRadius: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>3</div>
                   <span>30 pumps. Full inhale, hold 5 counts, slow exhale. That is one
-                  round.</span>
+                    round.</span>
                 </div>
                 <div className="bstep" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', display: 'flex', gap: '12px' }}>
                   <div className="bnum" style={{ width: '24px', height: '24px', background: 'var(--teal)', borderRadius: '50%', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>4</div>
                   <span>Repeat for 3 rounds. You will feel warmth and clarity. That is
-                  your body responding.</span>
+                    your body responding.</span>
                 </div>
               </div>
             </div>
@@ -367,7 +367,7 @@ const Carousel = () => {
         <div className="meridian-intro">
           <span className="section-label">What RecastCoach actually sounds like</span>
           <h2 className="section-heading">Real conversations. Real support.</h2>
-          <p className="section-sub">
+          <p className="section-sub ">
             From the first morning check-in to the first week in a new role.
           </p>
         </div>

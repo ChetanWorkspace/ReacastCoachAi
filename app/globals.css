@@ -145,6 +145,9 @@ body {
 .float-b {
   animation: floatB 5.5s ease-in-out infinite;
 }
+.text-center {
+  text-align: center;
+}
 
 /* NAV - Glassmorphic floating bar */
 nav {
@@ -998,6 +1001,9 @@ nav {
   text-align: center;
   margin-bottom: 40px;
 }
+.meridian-intro .section-sub {
+  margin-inline: auto;
+}
 .meridian-intro .section-heading {
   margin-bottom: 12px;
 }
@@ -1814,7 +1820,11 @@ nav {
 }
 
 /* FORM - New Layout with Centered Toggles */
-.form-wrap{background:linear-gradient(180deg,#0a111f,#0c1926);padding:20px 6%;position:relative}
+.form-wrap {
+  background: linear-gradient(180deg, #0a111f, #0c1926);
+  padding: 80px 6% 120px;
+  position: relative;
+}
 .form-top-center{text-align:center;margin-bottom:40px}
 .form-audience-tabs {
   display: inline-flex;
